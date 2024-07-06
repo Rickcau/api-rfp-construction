@@ -13,22 +13,23 @@ using api_resume_match.Utils;
 
 namespace ai_resume_match.Function
 {
-    public class HttpTrigger_Resume_Match
+    //GetListTopResumeMatch
+    public class GetListTopResumeMatch
     {
-        private readonly ILogger<HttpTrigger_Resume_Match> _logger;
+        private readonly ILogger<GetListTopResumeMatch> _logger;
         private static readonly string storageConnectionString = Helper.GetEnvironmentVariable("CONTAINER_STORAGE_CONNECTIONSTRING");
 
         private static readonly MLContext mlContext = new MLContext();
 
-        public HttpTrigger_Resume_Match(ILogger<HttpTrigger_Resume_Match> logger)
+        public GetListTopResumeMatch(ILogger<GetListTopResumeMatch> logger)
         {
             _logger = logger;
         }
 
-        [Function("HttpTrigger_Resume_Match")]
+        [Function("GetListTopResumeMatch")]
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
         {
-            // http://localhost:7071/api/HttpTrigger_Resume_Match?inputFileName=NY Housing Authority RFP_IdealResume.md
+            // http://localhost:7071/api/GetListTopResumeMatch?inputFileName=NY Housing Authority RFP_IdealResume.md
             string inputBlobName = req.Query["inputFileName"].FirstOrDefault() ?? string.Empty;
 
             if (string.IsNullOrEmpty(inputBlobName))
