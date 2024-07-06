@@ -7,21 +7,22 @@ using Azure.Storage.Blobs;
 
 namespace api_rfp_resume.Function
 {
-    public class HttpTrigger_Rfp_List
+    // GetCandidateList
+    public class GetRfpList
     {
-        private readonly ILogger<HttpTrigger_Rfp_List> _logger;
+        private readonly ILogger<GetRfpList> _logger;
         private static readonly string storageConnectionString = Helper.GetEnvironmentVariable("CONTAINER_STORAGE_CONNECTIONSTRING");
         private static readonly string rfpPDFContainer = Helper.GetEnvironmentVariable("RFP_INPUT_PDF_CONTAINER");
         private static readonly string rfpMDContainer = Helper.GetEnvironmentVariable("OUTPUT_IDEAL_RESUME_MD_CONTAINER");
         // input-rfps-pdfs
         // input-candidate-resumes-pdfs
 
-        public HttpTrigger_Rfp_List(ILogger<HttpTrigger_Rfp_List> logger)
+        public GetRfpList(ILogger<GetRfpList> logger)
         {
             _logger = logger;
         }
 
-        [Function("HttpTrigger_Rfp_List")]
+        [Function("GetRfpList")]
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
         {
             // http://localhost:7071/api/HttpTrigger_Rfp_List?retreiveFormat=md
