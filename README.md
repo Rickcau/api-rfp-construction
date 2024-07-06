@@ -1,7 +1,9 @@
 # RFP (Request for Proposal)  | api-rfp-construction GenAI
 This Repo contains a set of APIs that can be used to identify the best candidates based on a specific RFP. I am specifically using the construction industry as an example, but this could be applied to any industry that works with RFPs.
 
-The concept is to convert the RFP into text and generate an **ideal** RFP resume for each RFP in **markdown** format.  Next, we take **Candidate Resumes** that in the company and convert the PDF into text then convert this to **markdown** and save it.  We will just the list of **Candidate Resumes** and perform a **cosine similarity** search finding the top 5 resumes that align to the target RFP.
+The concept is to convert the RFP into text and generate an **ideal** RFP resume for each RFP in **markdown** format.  Next, we take **Candidate Resumes** available to the company and convert the PDF into text then convert this to **markdown** and save it.  We will use the list of **Candidate Resumes** and perform a **cosine similarity** search finding the top 5 resumes that align to the target RFP.  This approach allows you to quickly identify the best candidate for any given RFP based on a set of **candidate resumes**.
+
+It is important to note that the **candidate resumes** need to be as accurate as possible to ensure you are getting the best matches.
 
 I am using the Microsoft Machine Learning library for the vectoring of the text data and a custom function for the **cosine similarity**.  This could be modified to leveraged something like **BERT embeddings**, but I wanted to purposely make this simple and avoid using an ML model.
 
