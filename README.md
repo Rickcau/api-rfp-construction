@@ -5,9 +5,13 @@ This Repo contains a set of APIs that can be used to identify the best candidate
 This API is an Azure Blob Trigger, when invoked parses the RFP.PDF and generates an **ideal** RFP resume and copies it to and Azure Storage Container.  The target container for this API is **output-rfps-ideal-resumes-md**.  Yes, the format of the ideal RFP resume is in **markdown**. There are benefits to using **markdown**, especially if a frontend would like to display the data, of course the code can be modified to so the ideal RFP resume in plain text if needed.  Or, if a Frontend needs to display the data, you have the option of using the original PDF files. 
 
 ### BlobTrigger | ProcsssBlobPdfToMd
-This function is only trigger when a PDF is uploaded to the **blah** container.  Once triggered it will extract all the text from the PDF then generate an **ideal** resume for the RFP.  The purpose of this function is to leverage GenAI to extract all the job skills, qualifications and other data and from this generate what is considered to be an **ideal** set of qualifications in a **resume** using the **markdown** format.
+This function is only triggered when a PDF is uploaded to the **blah** container.  Once triggered it will extract all the text from the PDF then generate an **ideal** resume for the RFP.  The purpose of this function is to leverage GenAI to extract all the job skills, qualifications and other data and from this generate what is considered to be an **ideal** set of qualifications in a **resume** using the **markdown** format.
 
-Technically, the name of the could 
+## api-convert-resume-to-md - This API uses GenAI
+This API is an Azure Blob Trigger, when invoked parses the Candidate.PDF and generates a Candidate.Md file RFP resume and copies it to and Azure Storage Container.  The target container for this API is **output-rfps-ideal-resumes-md**.  Yes, the output file is in **markdown** format
+
+### BlobTrigger | ProcsssBlobPdfToMd
+This function is only triggered when a PDF is uploaded to the **INPUT_CANDIDATE_RESUME_PDF_CONTAINER** container.  Once triggered it will extract all the text from the candidate resume PDF then convert it to **markdown** then save it to the **output-candidate-resumes-md** .  The purpose of this function is to parse the text from PDF and to leverage GenAI to convert the text into **markdown** format.
 
 ### HttpTrigger | GetCandidateList
 This function is an HTTP GET and requires one parameter **retreiveFormat** which can be set to **md** or **pdf**.  It will retreive a list of candidate PDFs or MDs (markdown) files.  Here is an example of the GET request:
@@ -27,9 +31,6 @@ Here is an example of the response object:
           "entry-level-construction-resume-example.md"
       ]
    ~~~
-
-## api-convert-resume-to-md - This API uses GenAI
-This API is an Azure Blob Trigger, when invoked parses the Candidate.PDF and generates a Candidate.Md file RFP resume and copies it to and Azure Storage Container.  The target container for this API is **output-rfps-ideal-resumes-md**.  Yes, the output file is in **markdown** format
 
 ## api-resume-match - This API does not use GenAI
 This API has one function **Httpis an Azure Http Trigger, that expects an **inputFileName** parameter to be passed when making a HTTP GET request.  Below is an example of what an HTTP GET request will look like:
