@@ -48,10 +48,10 @@ Here is an example of the response object:
    ~~~
 
 ## api-resume-match - This API does not use GenAI
-This API has one function **Httpis an Azure Http Trigger, that expects an **inputFileName** parameter to be passed when making a HTTP GET request.  Below is an example of what an HTTP GET request will look like:
+This API has one function **GetListTopResumeMatch** is an Azure Http Trigger, that expects an **inputFileName** parameter to be passed when making a HTTP GET request.  Below is an example of what an HTTP GET request will look like:
 
    ~~~
-     http://localhost:7071/api/HttpTrigger_Resume_Match?inputFileName=NY Housing Authority RFP_IdealResume.md
+     http://localhost:7071/api/GetListTopResumeMatch?inputFileName=NY Housing Authority RFP_IdealResume.md
    ~~~
 
 Below is an example of what a response body might look like:
@@ -80,7 +80,6 @@ Below is an example of what a response body might look like:
         }
      ]
    ~~~
-
 
 ## How to use these APIs
 1. First you need to create an Azure Storage Account with the following containers
