@@ -8,16 +8,16 @@ using Azure.Storage.Blobs;
 
 namespace api_rfp_resume.Function
 {
-    public class HttpTrigger_GetCandidateList
+    public class GetCandidateList
     {
-        private readonly ILogger<HttpTrigger_GetCandidateList> _logger;
+        private readonly ILogger<GetCandidateList> _logger;
         private static readonly string storageConnectionString = Helper.GetEnvironmentVariable("CONTAINER_STORAGE_CONNECTIONSTRING");
         private static readonly string candidatePDFContainer = Helper.GetEnvironmentVariable("INPUT_CANDIDATE_RESUME_PDF_CONTAINER");
         private static readonly string candidateMDContainer = Helper.GetEnvironmentVariable("OUTPUT_CANDIDATE_RESUME_MD_CONTAINER");
         // input-rfps-pdfs
         // input-candidate-resumes-pdfs
 
-        public HttpTrigger_GetCandidateList(ILogger<HttpTrigger_GetCandidateList> logger)
+        public GetCandidateList(ILogger<GetCandidateList> logger)
         {
             _logger = logger;
         }
