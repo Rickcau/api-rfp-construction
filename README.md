@@ -1,6 +1,10 @@
 # RFP (Request for Proposal)  | api-rfp-construction GenAI
 This Repo contains a set of APIs that can be used to identify the best candidates based on a specific RFP. I am specifically using the construction industry as an example, but this could be applied to any industry that works with RFPs.
 
+The concept is to convert the RFP into text and generate an **ideal** RFP resume for each RFP in **markdown** format.  Next, we take **Candidate Resumes** that in the company and convert the PDF into text then convert this to **markdown** and save it.  We will just the list of **Candidate Resumes** and perform a **cosine similarity** search finding the top 5 resumes that align to the target RFP.
+
+I am using the Microsoft Machine Learning library for the vectoring of the text data and a custom function for the **cosine similarity**.  This could be modified to leveraged something like **BERT embeddings**, but I wanted to purposely make this simple and avoid using an ML model.
+
 ## api-rfp-resume - This API uses GenAI
 This API is an Azure Blob Trigger, when invoked parses the RFP.PDF and generates an **ideal** RFP resume and copies it to and Azure Storage Container.  The target container for this API is **output-rfps-ideal-resumes-md**.  Yes, the format of the ideal RFP resume is in **markdown**. There are benefits to using **markdown**, especially if a frontend would like to display the data, of course the code can be modified to so the ideal RFP resume in plain text if needed.  Or, if a Frontend needs to display the data, you have the option of using the original PDF files. 
 
