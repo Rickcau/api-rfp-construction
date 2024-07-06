@@ -4,11 +4,15 @@ This Repo contains a set of APIs that can be used to identify the best candidate
 ## api-rfp-resume - This API uses GenAI
 This API is an Azure Blob Trigger, when invoked parses the RFP.PDF and generates an **ideal** RFP resume and copies it to and Azure Storage Container.  The target container for this API is **output-rfps-ideal-resumes-md**.  Yes, the format of the ideal RFP resume is in **markdown**. There are benefits to using **markdown**, especially if a frontend would like to display the data, of course the code can be modified to so the ideal RFP resume in plain text if needed.  Or, if a Frontend needs to display the data, you have the option of using the original PDF files. 
 
+### BlobTrigger |
+
+### HttpTrigger |
+
 ## api-convert-resume-to-md - This API uses GenAI
 This API is an Azure Blob Trigger, when invoked parses the Candidate.PDF and generates a Candidate.Md file RFP resume and copies it to and Azure Storage Container.  The target container for this API is **output-rfps-ideal-resumes-md**.  Yes, the output file is in **markdown** format
 
 ## api-resume-match - This API does not use GenAI
-This API is an Azure Http Trigger, that expects an **inputFileName** parameter to be passed when making a HTTP GET request.  Below is an example of what an HTTP GET request will look like:
+This API has one function **Httpis an Azure Http Trigger, that expects an **inputFileName** parameter to be passed when making a HTTP GET request.  Below is an example of what an HTTP GET request will look like:
 
    ~~~
      http://localhost:7071/api/HttpTrigger_Resume_Match?inputFileName=NY Housing Authority RFP_IdealResume.md
@@ -40,6 +44,9 @@ Below is an example of what a response body might look like:
         }
      ]
    ~~~
+
+### HttpTrigger
+
 
 ## How to use these APIs
 1. First you need to create an Azure Storage Account with the following containers
