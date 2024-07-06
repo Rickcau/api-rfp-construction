@@ -7,6 +7,7 @@ using api_rfp_resume.Utils;
 using System.Text;
 
 
+
 namespace api_rfp_resume.Function
 {
     public class BlobTrigger_RFP_Generate_Ideal_Resume
