@@ -81,8 +81,6 @@ Below is an example of what a response body might look like:
      ]
    ~~~
 
-### HttpTrigger
-
 
 ## How to use these APIs
 1. First you need to create an Azure Storage Account with the following containers
