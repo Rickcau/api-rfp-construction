@@ -22,7 +22,7 @@ namespace api_rfp_resume.Function
             _logger = logger;
         }
 
-        [Function("HttpTrigger_GetCandidateList")]
+        [Function("GetCandidateList")]
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
         {
             // http://localhost:7071/api/HttpTrigger_GetCandidateList?retreiveFormat=md

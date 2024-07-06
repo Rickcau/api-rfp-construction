@@ -9,20 +9,21 @@ using System.Text;
 // BlobTrigger-Convert-To-MD
 namespace api_rfp_resume.Function
 {
-    public class BlobTrigger_Convert_To_Ideal_MD
+    public class ProcsssBlobPdfToMd
     {
-        private readonly ILogger<BlobTrigger_Convert_To_Ideal_MD> _logger;
+        private readonly ILogger<ProcsssBlobPdfToMd> _logger;
         private readonly Kernel _kernel;
         private readonly AIHelper _aiHelper;
 
-        public BlobTrigger_Convert_To_Ideal_MD(ILogger<BlobTrigger_Convert_To_Ideal_MD> logger, Kernel kernel)
+        public ProcsssBlobPdfToMd(ILogger<ProcsssBlobPdfToMd> logger, Kernel kernel)
         {
             _logger = logger;
             _kernel = kernel;
             _aiHelper = new AIHelper(_kernel);
         }
-
-        [Function(nameof(BlobTrigger_Convert_To_Ideal_MD))]
+        
+        // ProcsssBlobPdfToMd
+        [Function(nameof(ProcsssBlobPdfToMd))]
         public async Task Run([BlobTrigger("input-candidate-resumes-pdfs/{name}", Connection = "CONTAINER_STORAGE_CONNECTIONSTRING")] Stream stream, string name)
         {
             using var blobStreamReader = new StreamReader(stream);
