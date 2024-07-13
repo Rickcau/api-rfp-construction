@@ -1,5 +1,5 @@
 # RFP (Request for Proposal)  | api-rfp-construction GenAI
-**This is a work in progress Repo**
+**This is a work in progress repo!**
 
 This Repo contains a set of APIs that can be used to identify the best candidates based on a specific RFP. I am specifically using the construction industry as an example, but this could be applied to any industry that works with RFPs.
 
